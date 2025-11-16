@@ -1,0 +1,1398 @@
+[
+  {
+    "text": "ඔවුන් ගෙදරට ගියා",
+    "tokens": [
+      "ඔවුන්",
+      "ගෙදරට",
+      "ගියා"
+    ],
+    "labels": [
+      "O",
+      "vowel_confusion",
+      "O"
+    ]
+  },
+  {
+    "text": "ඔවුන් ගෙදර ගියා",
+    "tokens": [
+      "ඔවුන්",
+      "ගෙදර",
+      "ගියා"
+    ],
+    "labels": [
+      "graphemic_swap",
+      "suffix_omission",
+      "O"
+    ]
+  },
+  {
+    "text": "මම පාසලට ගියා",
+    "tokens": [
+      "මම",
+      "පාසලට",
+      "ගියා"
+    ],
+    "labels": [
+      "O",
+      "O",
+      "graphemic_swap"
+    ]
+  },
+  {
+    "text": "ඇය ගුරුතුමිය කතා කළා",
+    "tokens": [
+      "ඇය",
+      "ගුරුතුමිය",
+      "කතා",
+      "කළා"
+    ],
+    "labels": [
+      "graphemic_swap",
+      "suffix_omission",
+      "O",
+      "vowel_confusion"
+    ]
+  },
+  {
+    "text": "ඔවුන් ගෙදරට ගියා",
+    "tokens": [
+      "ඔවුන්",
+      "ගෙදරට",
+      "ගියා"
+    ],
+    "labels": [
+      "graphemic_swap",
+      "graphemic_swap",
+      "O"
+    ]
+  },
+  {
+    "text": "ඔහු පොත කියවා",
+    "tokens": [
+      "ඔහු",
+      "පොත",
+      "කියවා"
+    ],
+    "labels": [
+      "graphemic_swap",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "text": "ඇය ගුලුතුමියට කතා කළා",
+    "tokens": [
+      "ඇය",
+      "ගුලුතුමියට",
+      "කතා",
+      "කළා"
+    ],
+    "labels": [
+      "vowel_confusion",
+      "graphemic_swap",
+      "vowel_confusion",
+      "vowel_confusion"
+    ]
+  },
+  {
+    "text": "මම පාසලට ගියා",
+    "tokens": [
+      "මම",
+      "පාසලට",
+      "ගියා"
+    ],
+    "labels": [
+      "O",
+      "vowel_confusion",
+      "O"
+    ]
+  },
+  {
+    "text": "අපී බස් එක ගියා",
+    "tokens": [
+      "අපී",
+      "බස්",
+      "එක",
+      "ගියා"
+    ],
+    "labels": [
+      "vowel_confusion",
+      "graphemic_swap",
+      "suffix_omission",
+      "graphemic_swap"
+    ]
+  },
+  {
+    "text": "ඇය ගුරුතුමියට කතා කළා",
+    "tokens": [
+      "ඇය",
+      "ගුරුතුමියට",
+      "කතා",
+      "කළා"
+    ],
+    "labels": [
+      "O",
+      "O",
+      "vowel_confusion",
+      "graphemic_swap"
+    ]
+  },
+  {
+    "text": "මම පාසලට ගියා",
+    "tokens": [
+      "මම",
+      "පාසලට",
+      "ගියා"
+    ],
+    "labels": [
+      "vowel_confusion",
+      "vowel_confusion",
+      "O"
+    ]
+  },
+  {
+    "text": "අපි බස් එකට ගියා",
+    "tokens": [
+      "අපි",
+      "බස්",
+      "එකට",
+      "ගියා"
+    ],
+    "labels": [
+      "graphemic_swap",
+      "vowel_confusion",
+      "vowel_confusion",
+      "O"
+    ]
+  },
+  {
+    "text": "මම පාසලට ගියා",
+    "tokens": [
+      "මම",
+      "පාසලට",
+      "ගියා"
+    ],
+    "labels": [
+      "graphemic_swap",
+      "graphemic_swap",
+      "O"
+    ]
+  },
+  {
+    "text": "මම පාසලට ගියා",
+    "tokens": [
+      "මම",
+      "පාසලට",
+      "ගියා"
+    ],
+    "labels": [
+      "vowel_confusion",
+      "vowel_confusion",
+      "O"
+    ]
+  },
+  {
+    "text": "අපි බස් එකට ගියා",
+    "tokens": [
+      "අපි",
+      "බස්",
+      "එකට",
+      "ගියා"
+    ],
+    "labels": [
+      "graphemic_swap",
+      "vowel_confusion",
+      "vowel_confusion",
+      "O"
+    ]
+  },
+  {
+    "text": "අපි බස් එකට ගියා",
+    "tokens": [
+      "අපි",
+      "බස්",
+      "එකට",
+      "ගියා"
+    ],
+    "labels": [
+      "O",
+      "graphemic_swap",
+      "vowel_confusion",
+      "vowel_confusion"
+    ]
+  },
+  {
+    "text": "මම පාසලට ගියා",
+    "tokens": [
+      "මම",
+      "පාසලට",
+      "ගියා"
+    ],
+    "labels": [
+      "vowel_confusion",
+      "graphemic_swap",
+      "graphemic_swap"
+    ]
+  },
+  {
+    "text": "අපී බස් එකට ගියා",
+    "tokens": [
+      "අපී",
+      "බස්",
+      "එකට",
+      "ගියා"
+    ],
+    "labels": [
+      "vowel_confusion",
+      "graphemic_swap",
+      "O",
+      "graphemic_swap"
+    ]
+  },
+  {
+    "text": "ඔවුන් ගෙදර ගියා",
+    "tokens": [
+      "ඔවුන්",
+      "ගෙදර",
+      "ගියා"
+    ],
+    "labels": [
+      "O",
+      "suffix_omission",
+      "graphemic_swap"
+    ]
+  },
+  {
+    "text": "මම පාසලට ගියා",
+    "tokens": [
+      "මම",
+      "පාසලට",
+      "ගියා"
+    ],
+    "labels": [
+      "graphemic_swap",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "text": "අපි බස් එකට ගියා",
+    "tokens": [
+      "අපි",
+      "බස්",
+      "එකට",
+      "ගියා"
+    ],
+    "labels": [
+      "O",
+      "O",
+      "vowel_confusion",
+      "vowel_confusion"
+    ]
+  },
+  {
+    "text": "අපි බස් එකට ගියා",
+    "tokens": [
+      "අපි",
+      "බස්",
+      "එකට",
+      "ගියා"
+    ],
+    "labels": [
+      "vowel_confusion",
+      "vowel_confusion",
+      "vowel_confusion",
+      "vowel_confusion"
+    ]
+  },
+  {
+    "text": "ඇය ගුරුතුමීයට ගතා කළා",
+    "tokens": [
+      "ඇය",
+      "ගුරුතුමීයට",
+      "ගතා",
+      "කළා"
+    ],
+    "labels": [
+      "O",
+      "vowel_confusion",
+      "graphemic_swap",
+      "graphemic_swap"
+    ]
+  },
+  {
+    "text": "අපි බස් එගට ගියා",
+    "tokens": [
+      "අපි",
+      "බස්",
+      "එගට",
+      "ගියා"
+    ],
+    "labels": [
+      "graphemic_swap",
+      "graphemic_swap",
+      "graphemic_swap",
+      "vowel_confusion"
+    ]
+  },
+  {
+    "text": "ඔහු පොත කියවා",
+    "tokens": [
+      "ඔහු",
+      "පොත",
+      "කියවා"
+    ],
+    "labels": [
+      "O",
+      "vowel_confusion",
+      "O"
+    ]
+  },
+  {
+    "text": "ඔවූන් ගෙදර ගියා",
+    "tokens": [
+      "ඔවූන්",
+      "ගෙදර",
+      "ගියා"
+    ],
+    "labels": [
+      "vowel_confusion",
+      "suffix_omission",
+      "O"
+    ]
+  },
+  {
+    "text": "ඇය ගුරුතුමිය කතා කළා",
+    "tokens": [
+      "ඇය",
+      "ගුරුතුමිය",
+      "කතා",
+      "කළා"
+    ],
+    "labels": [
+      "graphemic_swap",
+      "suffix_omission",
+      "vowel_confusion",
+      "O"
+    ]
+  },
+  {
+    "text": "ඔවුන් ගෙදරට ගියා",
+    "tokens": [
+      "ඔවුන්",
+      "ගෙදරට",
+      "ගියා"
+    ],
+    "labels": [
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "text": "ඔහු පොත කීයවා",
+    "tokens": [
+      "ඔහු",
+      "පොත",
+      "කීයවා"
+    ],
+    "labels": [
+      "O",
+      "vowel_confusion",
+      "vowel_confusion"
+    ]
+  },
+  {
+    "text": "ඇය ගුරුතුමියට කතා කළා",
+    "tokens": [
+      "ඇය",
+      "ගුරුතුමියට",
+      "කතා",
+      "කළා"
+    ],
+    "labels": [
+      "vowel_confusion",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "text": "අපි බස් එකට ගියා",
+    "tokens": [
+      "අපි",
+      "බස්",
+      "එකට",
+      "ගියා"
+    ],
+    "labels": [
+      "vowel_confusion",
+      "O",
+      "vowel_confusion",
+      "O"
+    ]
+  },
+  {
+    "text": "ඔහු පොත කියවා",
+    "tokens": [
+      "ඔහු",
+      "පොත",
+      "කියවා"
+    ],
+    "labels": [
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "text": "ඔහු පොත කියවා",
+    "tokens": [
+      "ඔහු",
+      "පොත",
+      "කියවා"
+    ],
+    "labels": [
+      "O",
+      "vowel_confusion",
+      "vowel_confusion"
+    ]
+  },
+  {
+    "text": "ඔවූන් ගෙදරට ගියා",
+    "tokens": [
+      "ඔවූන්",
+      "ගෙදරට",
+      "ගියා"
+    ],
+    "labels": [
+      "vowel_confusion",
+      "graphemic_swap",
+      "O"
+    ]
+  },
+  {
+    "text": "ඔවුන් ගෙදරට ගියා",
+    "tokens": [
+      "ඔවුන්",
+      "ගෙදරට",
+      "ගියා"
+    ],
+    "labels": [
+      "graphemic_swap",
+      "graphemic_swap",
+      "vowel_confusion"
+    ]
+  },
+  {
+    "text": "ඔවුන් ගෙදර ගියා",
+    "tokens": [
+      "ඔවුන්",
+      "ගෙදර",
+      "ගියා"
+    ],
+    "labels": [
+      "O",
+      "suffix_omission",
+      "O"
+    ]
+  },
+  {
+    "text": "අපි බස් එකට ගියා",
+    "tokens": [
+      "අපි",
+      "බස්",
+      "එකට",
+      "ගියා"
+    ],
+    "labels": [
+      "graphemic_swap",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "text": "ඔවූන් ගෙදරට ගියා",
+    "tokens": [
+      "ඔවූන්",
+      "ගෙදරට",
+      "ගියා"
+    ],
+    "labels": [
+      "vowel_confusion",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "text": "අපි බස් එකට ගියා",
+    "tokens": [
+      "අපි",
+      "බස්",
+      "එකට",
+      "ගියා"
+    ],
+    "labels": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "text": "මම පාසල ගියා",
+    "tokens": [
+      "මම",
+      "පාසල",
+      "ගියා"
+    ],
+    "labels": [
+      "graphemic_swap",
+      "suffix_omission",
+      "O"
+    ]
+  },
+  {
+    "text": "මම පාසලට ගියා",
+    "tokens": [
+      "මම",
+      "පාසලට",
+      "ගියා"
+    ],
+    "labels": [
+      "graphemic_swap",
+      "graphemic_swap",
+      "graphemic_swap"
+    ]
+  },
+  {
+    "text": "අපි බස් එකට ගියා",
+    "tokens": [
+      "අපි",
+      "බස්",
+      "එකට",
+      "ගියා"
+    ],
+    "labels": [
+      "vowel_confusion",
+      "O",
+      "O",
+      "graphemic_swap"
+    ]
+  },
+  {
+    "text": "ඇය ගුරුතුමිය කතා කළා",
+    "tokens": [
+      "ඇය",
+      "ගුරුතුමිය",
+      "කතා",
+      "කළා"
+    ],
+    "labels": [
+      "O",
+      "suffix_omission",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "text": "ඔවුන් ගෙදරට ගියා",
+    "tokens": [
+      "ඔවුන්",
+      "ගෙදරට",
+      "ගියා"
+    ],
+    "labels": [
+      "O",
+      "vowel_confusion",
+      "vowel_confusion"
+    ]
+  },
+  {
+    "text": "අපි බස් එක ගියා",
+    "tokens": [
+      "අපි",
+      "බස්",
+      "එක",
+      "ගියා"
+    ],
+    "labels": [
+      "graphemic_swap",
+      "vowel_confusion",
+      "suffix_omission",
+      "O"
+    ]
+  },
+  {
+    "text": "ඇය ගුරුතුමියට කතා කළා",
+    "tokens": [
+      "ඇය",
+      "ගුරුතුමියට",
+      "කතා",
+      "කළා"
+    ],
+    "labels": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "text": "අපි බස් එක ගියා",
+    "tokens": [
+      "අපි",
+      "බස්",
+      "එක",
+      "ගියා"
+    ],
+    "labels": [
+      "O",
+      "O",
+      "suffix_omission",
+      "graphemic_swap"
+    ]
+  },
+  {
+    "text": "මම පාසලට ගියා",
+    "tokens": [
+      "මම",
+      "පාසලට",
+      "ගියා"
+    ],
+    "labels": [
+      "O",
+      "O",
+      "vowel_confusion"
+    ]
+  },
+  {
+    "text": "මම පාසලට ගියා",
+    "tokens": [
+      "මම",
+      "පාසලට",
+      "ගියා"
+    ],
+    "labels": [
+      "O",
+      "graphemic_swap",
+      "O"
+    ]
+  },
+  {
+    "text": "ඇය ගුරුදුමියට කතා කළා",
+    "tokens": [
+      "ඇය",
+      "ගුරුදුමියට",
+      "කතා",
+      "කළා"
+    ],
+    "labels": [
+      "O",
+      "graphemic_swap",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "text": "ඇය ගුරුතුමියට කතා කළා",
+    "tokens": [
+      "ඇය",
+      "ගුරුතුමියට",
+      "කතා",
+      "කළා"
+    ],
+    "labels": [
+      "graphemic_swap",
+      "graphemic_swap",
+      "vowel_confusion",
+      "graphemic_swap"
+    ]
+  },
+  {
+    "text": "අපි බස් එක ගියා",
+    "tokens": [
+      "අපි",
+      "බස්",
+      "එක",
+      "ගියා"
+    ],
+    "labels": [
+      "vowel_confusion",
+      "vowel_confusion",
+      "suffix_omission",
+      "vowel_confusion"
+    ]
+  },
+  {
+    "text": "ඔහු පොත කියවා",
+    "tokens": [
+      "ඔහු",
+      "පොත",
+      "කියවා"
+    ],
+    "labels": [
+      "vowel_confusion",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "text": "අපී බස් එකට ගියා",
+    "tokens": [
+      "අපී",
+      "බස්",
+      "එකට",
+      "ගියා"
+    ],
+    "labels": [
+      "vowel_confusion",
+      "graphemic_swap",
+      "O",
+      "graphemic_swap"
+    ]
+  },
+  {
+    "text": "ඇය ගුරුතුමිය කතා කළා",
+    "tokens": [
+      "ඇය",
+      "ගුරුතුමිය",
+      "කතා",
+      "කළා"
+    ],
+    "labels": [
+      "graphemic_swap",
+      "suffix_omission",
+      "vowel_confusion",
+      "O"
+    ]
+  },
+  {
+    "text": "ඔවුන් ගෙදරට ගීයා",
+    "tokens": [
+      "ඔවුන්",
+      "ගෙදරට",
+      "ගීයා"
+    ],
+    "labels": [
+      "vowel_confusion",
+      "vowel_confusion",
+      "vowel_confusion"
+    ]
+  },
+  {
+    "text": "ඇය ගුරුතුමිය ගතා කළා",
+    "tokens": [
+      "ඇය",
+      "ගුරුතුමිය",
+      "ගතා",
+      "කළා"
+    ],
+    "labels": [
+      "O",
+      "suffix_omission",
+      "graphemic_swap",
+      "graphemic_swap"
+    ]
+  },
+  {
+    "text": "ඇය ගුරුතුමිය කතා කළා",
+    "tokens": [
+      "ඇය",
+      "ගුරුතුමිය",
+      "කතා",
+      "කළා"
+    ],
+    "labels": [
+      "O",
+      "suffix_omission",
+      "graphemic_swap",
+      "graphemic_swap"
+    ]
+  },
+  {
+    "text": "අපි බස් එකට ගියා",
+    "tokens": [
+      "අපි",
+      "බස්",
+      "එකට",
+      "ගියා"
+    ],
+    "labels": [
+      "O",
+      "vowel_confusion",
+      "graphemic_swap",
+      "graphemic_swap"
+    ]
+  },
+  {
+    "text": "අපී බස් එකට ගියා",
+    "tokens": [
+      "අපී",
+      "බස්",
+      "එකට",
+      "ගියා"
+    ],
+    "labels": [
+      "vowel_confusion",
+      "vowel_confusion",
+      "vowel_confusion",
+      "O"
+    ]
+  },
+  {
+    "text": "ඔවුම් ගෙදරට ගියා",
+    "tokens": [
+      "ඔවුම්",
+      "ගෙදරට",
+      "ගියා"
+    ],
+    "labels": [
+      "graphemic_swap",
+      "vowel_confusion",
+      "O"
+    ]
+  },
+  {
+    "text": "ඔහු පොත කියවා",
+    "tokens": [
+      "ඔහු",
+      "පොත",
+      "කියවා"
+    ],
+    "labels": [
+      "O",
+      "O",
+      "vowel_confusion"
+    ]
+  },
+  {
+    "text": "මම පාසලට ගියා",
+    "tokens": [
+      "මම",
+      "පාසලට",
+      "ගියා"
+    ],
+    "labels": [
+      "O",
+      "graphemic_swap",
+      "O"
+    ]
+  },
+  {
+    "text": "ඔහූ පොත කියවා",
+    "tokens": [
+      "ඔහූ",
+      "පොත",
+      "කියවා"
+    ],
+    "labels": [
+      "vowel_confusion",
+      "graphemic_swap",
+      "graphemic_swap"
+    ]
+  },
+  {
+    "text": "අපි බස් එගට ගියා",
+    "tokens": [
+      "අපි",
+      "බස්",
+      "එගට",
+      "ගියා"
+    ],
+    "labels": [
+      "O",
+      "graphemic_swap",
+      "graphemic_swap",
+      "O"
+    ]
+  },
+  {
+    "text": "ඇය ගුරුතුමියට කතා කළා",
+    "tokens": [
+      "ඇය",
+      "ගුරුතුමියට",
+      "කතා",
+      "කළා"
+    ],
+    "labels": [
+      "graphemic_swap",
+      "O",
+      "vowel_confusion",
+      "O"
+    ]
+  },
+  {
+    "text": "ඇය ගුරුතුමිය කතා කළා",
+    "tokens": [
+      "ඇය",
+      "ගුරුතුමිය",
+      "කතා",
+      "කළා"
+    ],
+    "labels": [
+      "O",
+      "suffix_omission",
+      "graphemic_swap",
+      "vowel_confusion"
+    ]
+  },
+  {
+    "text": "අපි බස් එකට ගියා",
+    "tokens": [
+      "අපි",
+      "බස්",
+      "එකට",
+      "ගියා"
+    ],
+    "labels": [
+      "vowel_confusion",
+      "graphemic_swap",
+      "graphemic_swap",
+      "vowel_confusion"
+    ]
+  },
+  {
+    "text": "මම පාසලට ගියා",
+    "tokens": [
+      "මම",
+      "පාසලට",
+      "ගියා"
+    ],
+    "labels": [
+      "graphemic_swap",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "text": "ඔවුන් ගෙදරට ගීයා",
+    "tokens": [
+      "ඔවුන්",
+      "ගෙදරට",
+      "ගීයා"
+    ],
+    "labels": [
+      "O",
+      "O",
+      "vowel_confusion"
+    ]
+  },
+  {
+    "text": "ඔහු පොත කියවා",
+    "tokens": [
+      "ඔහු",
+      "පොත",
+      "කියවා"
+    ],
+    "labels": [
+      "O",
+      "vowel_confusion",
+      "O"
+    ]
+  },
+  {
+    "text": "ඇය ගුරුදුමියට කතා කළා",
+    "tokens": [
+      "ඇය",
+      "ගුරුදුමියට",
+      "කතා",
+      "කළා"
+    ],
+    "labels": [
+      "graphemic_swap",
+      "graphemic_swap",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "text": "ඔහු පොත ගියවා",
+    "tokens": [
+      "ඔහු",
+      "පොත",
+      "ගියවා"
+    ],
+    "labels": [
+      "O",
+      "O",
+      "graphemic_swap"
+    ]
+  },
+  {
+    "text": "මම පාසලට ගියා",
+    "tokens": [
+      "මම",
+      "පාසලට",
+      "ගියා"
+    ],
+    "labels": [
+      "O",
+      "graphemic_swap",
+      "graphemic_swap"
+    ]
+  },
+  {
+    "text": "අපි බස් එක ගියා",
+    "tokens": [
+      "අපි",
+      "බස්",
+      "එක",
+      "ගියා"
+    ],
+    "labels": [
+      "O",
+      "vowel_confusion",
+      "suffix_omission",
+      "vowel_confusion"
+    ]
+  },
+  {
+    "text": "ඔහු පොත කියවා",
+    "tokens": [
+      "ඔහු",
+      "පොත",
+      "කියවා"
+    ],
+    "labels": [
+      "O",
+      "vowel_confusion",
+      "O"
+    ]
+  },
+  {
+    "text": "අපි බස් එගට ගියා",
+    "tokens": [
+      "අපි",
+      "බස්",
+      "එගට",
+      "ගියා"
+    ],
+    "labels": [
+      "vowel_confusion",
+      "O",
+      "graphemic_swap",
+      "vowel_confusion"
+    ]
+  },
+  {
+    "text": "අපී බස් එගට ගියා",
+    "tokens": [
+      "අපී",
+      "බස්",
+      "එගට",
+      "ගියා"
+    ],
+    "labels": [
+      "vowel_confusion",
+      "O",
+      "graphemic_swap",
+      "O"
+    ]
+  },
+  {
+    "text": "ඇය ගුරුතුමියට ගතා කළා",
+    "tokens": [
+      "ඇය",
+      "ගුරුතුමියට",
+      "ගතා",
+      "කළා"
+    ],
+    "labels": [
+      "vowel_confusion",
+      "O",
+      "graphemic_swap",
+      "O"
+    ]
+  },
+  {
+    "text": "අපි බස් එකට ගියා",
+    "tokens": [
+      "අපි",
+      "බස්",
+      "එකට",
+      "ගියා"
+    ],
+    "labels": [
+      "O",
+      "vowel_confusion",
+      "vowel_confusion",
+      "O"
+    ]
+  },
+  {
+    "text": "අපි බස් එකට ගියා",
+    "tokens": [
+      "අපි",
+      "බස්",
+      "එකට",
+      "ගියා"
+    ],
+    "labels": [
+      "O",
+      "vowel_confusion",
+      "graphemic_swap",
+      "O"
+    ]
+  },
+  {
+    "text": "ඔවුන් ගෙදර ගියා",
+    "tokens": [
+      "ඔවුන්",
+      "ගෙදර",
+      "ගියා"
+    ],
+    "labels": [
+      "O",
+      "suffix_omission",
+      "O"
+    ]
+  },
+  {
+    "text": "ඔහු පොත කියවා",
+    "tokens": [
+      "ඔහු",
+      "පොත",
+      "කියවා"
+    ],
+    "labels": [
+      "O",
+      "O",
+      "vowel_confusion"
+    ]
+  },
+  {
+    "text": "අපි බස් එකට ගියා",
+    "tokens": [
+      "අපි",
+      "බස්",
+      "එකට",
+      "ගියා"
+    ],
+    "labels": [
+      "O",
+      "O",
+      "graphemic_swap",
+      "graphemic_swap"
+    ]
+  },
+  {
+    "text": "අපි බස් එක ගීයා",
+    "tokens": [
+      "අපි",
+      "බස්",
+      "එක",
+      "ගීයා"
+    ],
+    "labels": [
+      "O",
+      "graphemic_swap",
+      "suffix_omission",
+      "vowel_confusion"
+    ]
+  },
+  {
+    "text": "ඇය ගුරුතුමියට ගතා කළා",
+    "tokens": [
+      "ඇය",
+      "ගුරුතුමියට",
+      "ගතා",
+      "කළා"
+    ],
+    "labels": [
+      "O",
+      "graphemic_swap",
+      "graphemic_swap",
+      "O"
+    ]
+  },
+  {
+    "text": "ඔහු පොත කියවා",
+    "tokens": [
+      "ඔහු",
+      "පොත",
+      "කියවා"
+    ],
+    "labels": [
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "text": "ඔහු පොත කියවා",
+    "tokens": [
+      "ඔහු",
+      "පොත",
+      "කියවා"
+    ],
+    "labels": [
+      "O",
+      "graphemic_swap",
+      "O"
+    ]
+  },
+  {
+    "text": "ඔවුන් ගෙදරට ගියා",
+    "tokens": [
+      "ඔවුන්",
+      "ගෙදරට",
+      "ගියා"
+    ],
+    "labels": [
+      "O",
+      "O",
+      "graphemic_swap"
+    ]
+  },
+  {
+    "text": "ඔහු පොත කීයවා",
+    "tokens": [
+      "ඔහු",
+      "පොත",
+      "කීයවා"
+    ],
+    "labels": [
+      "graphemic_swap",
+      "O",
+      "vowel_confusion"
+    ]
+  },
+  {
+    "text": "මම පාසල ගියා",
+    "tokens": [
+      "මම",
+      "පාසල",
+      "ගියා"
+    ],
+    "labels": [
+      "O",
+      "suffix_omission",
+      "O"
+    ]
+  },
+  {
+    "text": "අපි බස් එක ගියා",
+    "tokens": [
+      "අපි",
+      "බස්",
+      "එක",
+      "ගියා"
+    ],
+    "labels": [
+      "vowel_confusion",
+      "O",
+      "suffix_omission",
+      "graphemic_swap"
+    ]
+  },
+  {
+    "text": "ඇය ගුරුතුමිය ගතා කළා",
+    "tokens": [
+      "ඇය",
+      "ගුරුතුමිය",
+      "ගතා",
+      "කළා"
+    ],
+    "labels": [
+      "graphemic_swap",
+      "suffix_omission",
+      "graphemic_swap",
+      "graphemic_swap"
+    ]
+  },
+  {
+    "text": "ඔහු පොත කියවා",
+    "tokens": [
+      "ඔහු",
+      "පොත",
+      "කියවා"
+    ],
+    "labels": [
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "text": "මම පාසලට ගියා",
+    "tokens": [
+      "මම",
+      "පාසලට",
+      "ගියා"
+    ],
+    "labels": [
+      "vowel_confusion",
+      "vowel_confusion",
+      "O"
+    ]
+  },
+  {
+    "text": "මම පාසලට ගියා",
+    "tokens": [
+      "මම",
+      "පාසලට",
+      "ගියා"
+    ],
+    "labels": [
+      "vowel_confusion",
+      "O",
+      "graphemic_swap"
+    ]
+  },
+  {
+    "text": "ඇය ගුරුතුමියට කතා කළා",
+    "tokens": [
+      "ඇය",
+      "ගුරුතුමියට",
+      "කතා",
+      "කළා"
+    ],
+    "labels": [
+      "graphemic_swap",
+      "graphemic_swap",
+      "vowel_confusion",
+      "O"
+    ]
+  },
+  {
+    "text": "ඔහු පොත කීයවා",
+    "tokens": [
+      "ඔහු",
+      "පොත",
+      "කීයවා"
+    ],
+    "labels": [
+      "O",
+      "O",
+      "vowel_confusion"
+    ]
+  },
+  {
+    "text": "ඔවුන් ගෙදරට ගියා",
+    "tokens": [
+      "ඔවුන්",
+      "ගෙදරට",
+      "ගියා"
+    ],
+    "labels": [
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "text": "මම පාසලට ගියා",
+    "tokens": [
+      "මම",
+      "පාසලට",
+      "ගියා"
+    ],
+    "labels": [
+      "O",
+      "graphemic_swap",
+      "O"
+    ]
+  }
+]
