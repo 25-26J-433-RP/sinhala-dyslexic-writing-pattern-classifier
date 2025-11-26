@@ -16,5 +16,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy project
 COPY . .
 
+# Expose port used by the built-in status server
+ENV PORT=8080
+EXPOSE 8080
+
 # Default command runs the status server (which runs training in background)
 CMD ["python", "server.py"]
