@@ -16,5 +16,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy project
 COPY . .
 
-# Default command runs the training script
-CMD ["python", "train_model.py"]
+# Default command runs the status server (which runs training in background)
+CMD ["python", "server.py"]
