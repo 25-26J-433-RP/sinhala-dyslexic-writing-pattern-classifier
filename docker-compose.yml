@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  app:
+    build: .
+    volumes:
+      - ./:/app:rw
+    command: python train_model.py
+    tty: true
