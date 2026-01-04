@@ -1,0 +1,15 @@
+{
+  "allowed_error_tags": [
+    "spelling_error",
+    "missing_diacritic",
+    "extra_diacritic",
+    "letter_omission",
+    "letter_addition",
+    "order_swap",
+    "merged_words",
+    "fragmented_words",
+    "spacing_issue",
+    "repeated_letters",
+    "irregular_structure"
+  ]
+}
