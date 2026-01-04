@@ -62,8 +62,7 @@ DYSLEXIC-PATTERN-TRAINING/
 ├── notebooks/
 │ ├── 01_binary_classifier_training.ipynb
 │ ├── 02_pattern_classifier_training.ipynb
-│ ├── 04_error_tag_cleaning.ipynb
-│
+│ └── 04_error_tag_cleaning.ipynb
 │
 ├── src/
 │ ├── utils/
