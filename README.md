@@ -46,6 +46,8 @@ Schema: data/schemas/error_tags.json
 
 ## Repository Structure
 
+```
+
 DYSLEXIC-PATTERN-TRAINING/
 │
 ├── data/
@@ -93,6 +95,7 @@ DYSLEXIC-PATTERN-TRAINING/
 ├── requirements.txt
 ├── LICENSE
 └── README.md
+```
 
 ---
 

@@ -42,6 +42,7 @@ def main():
     # Predict
     with torch.no_grad():
         outputs = model(**inputs)
+        
         probs = torch.softmax(outputs.logits, dim=1)
         pred = torch.argmax(probs, dim=1).item()
         confidence = probs[0][pred].item()
