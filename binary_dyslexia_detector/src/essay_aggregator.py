@@ -10,7 +10,7 @@ This module bridges sentence predictions → essay screening.
 """
 
 import re
-from src.sentence_classifier import predict_sentence
+from binary_dyslexia_detector.src.sentence_classifier import predict_sentence
 
 
 

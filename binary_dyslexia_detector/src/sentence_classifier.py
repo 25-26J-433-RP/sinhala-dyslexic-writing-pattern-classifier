@@ -11,7 +11,8 @@ Essay-level logic is handled elsewhere.
 
 import joblib
 import os
-from src.vectorizer import vectorize_sentence
+from binary_dyslexia_detector.src.vectorizer import vectorize_sentence
+
 
 # ------------------------------------------------------------
 # Resolve project root directory

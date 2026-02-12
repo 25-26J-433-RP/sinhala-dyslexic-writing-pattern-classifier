@@ -1,9 +1,5 @@
-transformers==4.57.1
-torch==2.9.0
-pandas
-numpy
+fastapi
+uvicorn
+joblib
 scikit-learn
-matplotlib
-seaborn
-tqdm
-ki
+pandas
