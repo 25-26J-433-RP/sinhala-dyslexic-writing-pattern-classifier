@@ -34,5 +34,7 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/dyslexic-pattern-training:${{ github.sha }}
-            ${{ secrets.DOCKERHUB_USERNAME }}/dyslexic-pattern-training:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/sinhala-dyslexic-writing-pattern-classifier:${{ github.sha }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/sinhala-dyslexic-writing-pattern-classifier:latest
+
+
