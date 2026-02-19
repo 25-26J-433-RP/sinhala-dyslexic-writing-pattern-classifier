@@ -1,5 +1,5 @@
 import re
-from .model import predict_sentence_pattern
+from .model import predict_batch_sentence_patterns
 from .explanations import PATTERN_EXPLANATIONS
 
 
@@ -11,16 +11,23 @@ def analyze_full_essay(essay_text):
     if not sentences:
         return {"error": "No valid sentences detected."}
 
+    # 🔥 ONE BATCH CALL
+    probs_list = predict_batch_sentence_patterns(sentences)
+
     total_scores = {}
-    sentence_results = []
+    # sentence_results = []   # ❌ Temporarily disabled
 
     # ------------------------
-    # Sentence Level Analysis
+    # Sentence Level Analysis (COMMENTED)
     # ------------------------
-    for s in sentences:
-        probs = predict_sentence_pattern(s)
-        sentence_results.append({"text": s, "probabilities": probs})
+    # for s, probs in zip(sentences, probs_list):
+    #     sentence_results.append({"text": s, "probabilities": probs})
+    #
+    #     for label, value in probs.items():
+    #         total_scores[label] = total_scores.get(label, 0.0) + float(value)
 
+    # ✅ Instead, just aggregate without storing sentences
+    for probs in probs_list:
         for label, value in probs.items():
             total_scores[label] = total_scores.get(label, 0.0) + float(value)
 
@@ -59,36 +66,10 @@ def analyze_full_essay(essay_text):
         dominant = f"{top_label} Pattern Dominant ({top_score:.2f})"
         explanation = PATTERN_EXPLANATIONS.get(top_label, "")
 
-    # ---------------------------------
-    # STRONG PATTERN SENTENCE ANALYSIS
-    # ---------------------------------
-    strong_threshold = 0.45
-
-    pattern_sentence_count = {label: 0 for label in normalized.keys()}
-    pattern_sentence_examples = {label: [] for label in normalized.keys()}
-
-    for sentence in sentence_results:
-        for label, prob in sentence["probabilities"].items():
-            if prob > strong_threshold:
-                pattern_sentence_count[label] += 1
-                pattern_sentence_examples[label].append(sentence["text"])
-
-    total_sentences = len(sentences)
-
-    pattern_density = {
-        label: float((pattern_sentence_count[label] / total_sentences) * 100)
-        for label in normalized.keys()
-    }
-
     # ------------------------
-    # RISK SCORE
+    # RISK SCORE (Simplified)
     # ------------------------
-    risk_score = (
-        normalized[top_label] * 0.6 +
-        (pattern_sentence_count[top_label] / total_sentences) * 0.4
-    ) * 100
-
-    risk_score = float(risk_score)
+    risk_score = float(normalized[top_label] * 100)
 
     if risk_score > 60:
         risk_level = "High Writing Pattern Risk"
@@ -102,10 +83,7 @@ def analyze_full_essay(essay_text):
         "severity": severity,
         "explanation": explanation,
         "distribution": normalized,
-        "sentences": sentence_results,
-        "pattern_sentence_count": pattern_sentence_count,
-        "pattern_sentence_examples": pattern_sentence_examples,
-        "pattern_density": pattern_density,
+        # "sentences": sentence_results,  # ❌ Disabled for now
         "risk_score": risk_score,
         "risk_level": risk_level
     }

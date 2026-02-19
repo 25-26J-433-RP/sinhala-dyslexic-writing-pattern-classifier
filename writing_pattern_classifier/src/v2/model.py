@@ -27,3 +27,34 @@ def predict_sentence_pattern(text):
     probs = model.predict_proba(combined)[0]
 
     return dict(zip(label_encoder.classes_, probs))
+
+def predict_batch_sentence_patterns(sentences):
+    """
+    Batch prediction for multiple sentences.
+    Much faster than looping one-by-one.
+    """
+
+    # Extract structured features for all sentences
+    structured_features = [
+        list(extract_structured_features(s).values())
+        for s in sentences
+    ]
+    structured_array = np.array(structured_features)
+
+    # Vectorize all sentences in one call
+    text_vec = vectorizer.transform(sentences)
+
+    # Combine sparse text features + structured features
+    combined = hstack([text_vec, structured_array])
+
+    # 4Single model call
+    probs = model.predict_proba(combined)
+
+    # Convert to dictionary format
+    results = []
+    for i in range(len(sentences)):
+        results.append(
+            dict(zip(label_encoder.classes_, probs[i]))
+        )
+
+    return results
