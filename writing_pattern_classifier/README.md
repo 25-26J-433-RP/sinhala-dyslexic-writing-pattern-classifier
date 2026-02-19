@@ -1,163 +1,387 @@
-# Dyslexic Writing-Pattern Classifier (Sinhala)
+# Writing Pattern Classifier (V2)
 
-This module implements an **interpretable, rule-based dyslexic writing-pattern classifier** for Sinhala text.
+Multi-class Sinhala dyslexic writing pattern analysis module.
 
-Unlike traditional machine-learning classifiers, this component focuses on **pattern inference and explainability**, rather than predictive accuracy.  
-It is designed to analyze _how_ dyslexic writing manifests, not merely _whether_ dyslexia is present.
+This module performs fine-grained classification of dyslexic writing into dominant linguistic error patterns. It is designed as the second-stage analytical component of the overall Sinhala Dyslexia Analysis System.
 
----
-
-## Purpose
-
-- Identify **dominant dyslexic writing patterns** in Sinhala text
-- Provide **explainable, linguistically grounded analysis**
-- Support educational and research-oriented dyslexia-aware systems
-
-This module is executed **only after** an essay has been identified as dyslexic by the Binary Dyslexia Detector.
+While the Binary Dyslexia Detector determines whether dyslexic characteristics are present, this module explains _how_ they manifest.
 
 ---
 
-## Core Design Principle
+# Table of Contents
 
-> Dyslexia is expressed through **consistent patterns of surface-level writing errors**, not isolated mistakes.
-
-Therefore, this classifier infers patterns using **rule-based dominance of error signals**, rather than supervised learning.
-
----
-
-## Writing Patterns Identified
-
-The system currently identifies the following dyslexic writing patterns:
-
-- **Orthographic Instability**  
-  Frequent character omissions, additions, or diacritic loss
-
-- **Phonetic Confusion**  
-  Character substitutions reflecting phonetic similarity
-
-- **Mixed Dyslexic Pattern**  
-  Co-occurrence of multiple dominant error types
-
-- **No Dominant Pattern**  
-  Absence of consistent dyslexic error behavior
-
-- **Word Boundary Confusion** (when applicable)  
-  Spacing and word segmentation errors
-
-These patterns are derived from dyslexia-related literature and adapted for Sinhala writing.
+- Overview
+- System Role in Architecture
+- Error Taxonomy
+- Model Design
+- Feature Engineering
+- Hybrid Feature Fusion
+- Training Pipeline
+- Inference Pipeline
+- Essay-Level Aggregation Logic
+- Dominance & Severity Logic
+- Risk Scoring Formula
+- Interpretability & Explainability
+- Project Structure
+- Deployment
+- Limitations
+- Future Work
+- License
 
 ---
 
-## Processing Pipeline
+# Overview
 
-### 1. Sentence-Level Analysis
+The Writing Pattern Classifier (V2) is a multi-class classification system that identifies dominant dyslexic writing patterns in Sinhala text.
 
-For each sentence:
+It operates at:
 
-- Clean and dyslexic versions are compared
-- Surface error features are extracted:
-  - Character addition
-  - Character omission
-  - Character substitution
-  - Diacritic loss
-  - Spacing issues
-- A **rule-based inference engine** assigns a sentence-level writing pattern
+- Sentence-level (pattern probability estimation)
+- Essay-level (dominance detection + risk scoring)
 
-### 2. Essay-Level Aggregation
-
-Because the dataset does not provide explicit essay boundaries:
-
-- Essays are approximated using **fixed-size sentence windows** (pseudo-essays)
-- Sentence-level patterns are aggregated per essay
-
-### 3. Dominant Pattern Classification
-
-For each essay:
-
-- The most frequent pattern is selected as the **dominant pattern**
-- A **confidence score** is computed as:
-
-\[
-Confidence = \frac{\text{Number of sentences supporting dominant pattern}}
-{\text{Total number of sentences in essay}}
-\]
-
-- Dominance strength is categorized as:
-  - Strong Dominance
-  - Moderate Dominance
-  - Weak / Mixed
+Unlike simple spelling checkers, this module detects structured cognitive error categories.
 
 ---
 
-## Outputs
+# System Role in Architecture
 
-For each essay, the classifier produces:
-
-- Dominant dyslexic writing pattern
-- Pattern dominance confidence
-- Dominance strength label
-- Sentence-level pattern breakdown (for explainability)
-
-### Example Output
-
-```json
-{
-  "dominant_pattern": "Orthographic Instability",
-  "confidence": 0.6,
-  "dominance_strength": "Strong Dominance"
-}
-
----
-
-## Evaluation Strategy
-
-This component does not use supervised evaluation metrics such as accuracy or F1-score.
-
-Reason:
-
-- Essay-level pattern labels are inferred, not manually annotated
-
-- Reporting accuracy would result in label leakage
-
-Instead, evaluation is performed using:
-
-- Pattern distribution analysis
-
-- Confidence distribution statistics
-
-- Qualitative case studies with sentence-level evidence
-
-This approach aligns with best practices in dyslexia-related linguistic analysis.
-
-## Notebooks
-
-notebooks/
-├── 01_surface_feature_extraction_and_pattern_inference_v3.ipynb
-└── 02_essay_level_dyslexic_pattern_profiling.ipynb
-
-These notebooks document the full development and validation process.
-
-## Limitations
-
-Essay boundaries are approximated using fixed-size sentence windows
-
-The system does not perform clinical diagnosis
-
-Pattern definitions may evolve with expert validation
-
-## Role in the Overall System
-
-(Binary Dyslexia Detector)
-          ↓
-Dyslexic Essay
-          ↓
-Writing-Pattern Classifier
-          ↓
-Pattern Profile + Confidence
-
-## Disclaimer
-
-This module is intended for research and educational purposes only and should not be used for clinical diagnosis.
-
-Generated CSV artifacts are intentionally excluded from version control and can be reproduced by executing the notebooks or pipeline.
 ```
+Essay Input
+    │
+    ▼
+Binary Dyslexia Detector
+    │
+    ├── NORMAL → Stop
+    └── DYSLEXIC → Writing Pattern Classifier (V2)
+                      │
+                      ▼
+             Pattern Distribution + Risk Analysis
+```
+
+This module assumes the essay has already been flagged as dyslexic.
+
+---
+
+# Error Taxonomy (Macro Labels)
+
+Original dataset labels are normalized into 4 macro categories:
+
+- Grammar
+- Phonetic
+- Spelling
+- Visual
+
+Normalization Logic:
+
+```
+"phonetic" → Phonetic
+"visual", "scrambling", "reversal" → Visual
+"grammar", "tense", "case" → Grammar
+"spelling" → Spelling
+```
+
+All other labels are discarded ("None" removed).
+
+This ensures:
+
+- Controlled label space
+- Reduced noise
+- Clear interpretability
+
+---
+
+# Model Design
+
+Algorithm: Logistic Regression  
+Max Iterations: 3000  
+Class Weight: Balanced  
+Regularization: Default L2
+
+Why Logistic Regression?
+
+- Produces calibrated probabilities
+- Stable for multi-class classification
+- Interpretable weight vectors
+- Works well with sparse + dense hybrid features
+- Lightweight and deployment-friendly
+
+This is a 4-class classification problem.
+
+---
+
+# Feature Engineering
+
+V2 uses a hybrid feature architecture:
+
+### 1️⃣ Character-Level TF-IDF
+
+- Analyzer: char
+- N-gram range: (2, 4)
+- Max features: 20,000
+
+Captures:
+
+- Orthographic instability
+- Grapheme-level distortions
+- Character misordering
+- Diacritic loss
+
+---
+
+### 2️⃣ Structured Linguistic Features
+
+Extracted via regex grapheme segmentation:
+
+- char_length
+- word_count
+- repeated_graphemes
+
+Repeated graphemes detect patterns like:
+
+- Letter duplication
+- Motor-control repetition artifacts
+
+These features introduce linguistic structure beyond pure n-grams.
+
+---
+
+# Hybrid Feature Fusion
+
+Final feature matrix:
+
+```
+X_combined = hstack([TF-IDF sparse matrix, structured dense matrix])
+```
+
+This produces:
+
+- High-dimensional sparse lexical space
+- Low-dimensional structured numeric features
+- Combined representation for richer modeling
+
+---
+
+# Training Pipeline
+
+1. Load dataset:
+   SPEAK-ASR/akura-sinhala-dyslexia-corrected
+
+2. Normalize labels into macro categories
+3. Remove "None"
+4. Extract structured features
+5. Fit TF-IDF vectorizer
+6. Combine sparse + dense features
+7. Encode labels using LabelEncoder
+8. Stratified 80/20 split
+9. Train balanced Logistic Regression
+10. Save artifacts:
+
+```
+artifacts/
+ ├── v2_pattern_model.pkl
+ ├── v2_pattern_vectorizer.pkl
+ └── v2_pattern_label_encoder.pkl
+```
+
+---
+
+# Inference Pipeline
+
+Sentence-Level:
+
+```
+1. Extract structured features
+2. Vectorize text
+3. hstack features
+4. model.predict_proba()
+5. Return probability per class
+```
+
+Batch Inference:
+
+`predict_batch_sentence_patterns()`  
+Optimized to reduce repeated model calls.  
+Single matrix transform → single predict call.
+
+Significantly improves latency for long essays.
+
+---
+
+# Essay-Level Aggregation Logic
+
+For an essay:
+
+1. Split into sentences
+2. Predict probability distribution per sentence
+3. Sum probabilities across sentences
+4. Normalize to distribution
+
+```
+normalized[label] = total_scores[label] / sum(total_scores)
+```
+
+This yields pattern distribution across the entire essay.
+
+---
+
+# Dominance & Severity Logic
+
+Let:
+
+- top_label = highest normalized score
+- second_label = second highest
+
+### Dominance Threshold
+
+If:
+
+```
+top_score - second_score < 0.05
+```
+
+Then:
+
+"No clear dominant pattern"
+
+Otherwise:
+
+"{top_label} Pattern Dominant"
+
+---
+
+### Severity Thresholds
+
+```
+if top_score > 0.45:
+    High Pattern Dominance
+elif top_score > 0.35:
+    Moderate Pattern Presence
+else:
+    Mild Pattern Indicators
+```
+
+---
+
+# Strong Pattern Sentence Analysis
+
+Sentence considered strongly affected if:
+
+```
+probability > 0.45
+```
+
+Metrics computed:
+
+- pattern_sentence_count
+- pattern_sentence_examples
+- pattern_density (% of essay strongly affected)
+
+---
+
+# Risk Scoring Formula
+
+Risk score integrates:
+
+1. Global distribution strength
+2. Sentence-level density
+
+Formula:
+
+```
+risk_score =
+(
+    normalized[top_label] * 0.6 +
+    (pattern_sentence_count[top_label] / total_sentences) * 0.4
+) * 100
+```
+
+Interpretation:
+
+- 60% weight → overall dominance
+- 40% weight → localized strong signals
+
+Risk Levels:
+
+```
+> 60 → High Writing Pattern Risk
+> 40 → Moderate Writing Pattern Risk
+else → Low Writing Pattern Risk
+```
+
+---
+
+# Interpretability & Explainability
+
+The system provides:
+
+- Full probability distribution
+- Sentence-level probabilities
+- Example sentences per pattern
+- Natural language explanation (PATTERN_EXPLANATIONS)
+- Structured diagnostic report (CLI mode)
+
+This ensures transparency and auditability.
+
+---
+
+# Project Structure
+
+```
+writing_pattern_classifier/
+├── artifacts/
+├── src/
+│   ├── v2/
+│   │   ├── essay_profile.py
+│   │   ├── model.py
+│   │   ├── preprocessing.py
+│   │   ├── pipeline.py
+│   │   └── explanations.py
+│   ├── router.py
+│   └── training/
+│       └── train_v2.py
+├── test_v2_cli.py
+└── README.md
+```
+
+---
+
+# Deployment
+
+Exposed via main FastAPI service:
+
+```
+POST /patterns
+POST /analyze
+```
+
+Supports:
+
+- Local execution
+- Docker containerization
+- Cloud Run deployment
+
+---
+
+# Limitations
+
+- Sentence-level modeling ignores long-range discourse context
+- Logistic Regression may not capture nonlinear interactions
+- Dataset domain bias possible
+- Structured features limited to 3 handcrafted metrics
+
+---
+
+# Future Work
+
+- Context-aware sequence models (Transformer-based)
+- Feature importance visualization
+- Adaptive risk weighting
+- Per-grade calibration
+- Fairness-aware evaluation
+- Neurodiversity-sensitive evaluation metrics
+
+---
+
+# License
+
+MIT License
