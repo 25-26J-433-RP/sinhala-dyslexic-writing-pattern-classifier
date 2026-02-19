@@ -1,5 +1,5 @@
 import re
-from .model import predict_batch_sentence_patterns
+from .model import predict_sentence_pattern
 from .explanations import PATTERN_EXPLANATIONS
 
 
@@ -11,18 +11,15 @@ def analyze_full_essay(essay_text):
     if not sentences:
         return {"error": "No valid sentences detected."}
 
-    # 🔥 ONE BATCH CALL
-    probs_list = predict_batch_sentence_patterns(sentences)
-
     total_scores = {}
     sentence_results = []
 
-    # Aggregate + store sentence details
-    for s, probs in zip(sentences, probs_list):
-        sentence_results.append({
-            "text": s,
-            "probabilities": {k: float(v) for k, v in probs.items()}
-        })
+    # ------------------------
+    # Sentence Level Analysis
+    # ------------------------
+    for s in sentences:
+        probs = predict_sentence_pattern(s)
+        sentence_results.append({"text": s, "probabilities": probs})
 
         for label, value in probs.items():
             total_scores[label] = total_scores.get(label, 0.0) + float(value)
@@ -34,7 +31,9 @@ def analyze_full_essay(essay_text):
     top_label, top_score = sorted_patterns[0]
     second_label, second_score = sorted_patterns[1]
 
-    # Severity
+    # ------------------------
+    # SEVERITY LOGIC
+    # ------------------------
     if top_score > 0.45:
         severity = "High Pattern Dominance"
     elif top_score > 0.35:
@@ -42,7 +41,9 @@ def analyze_full_essay(essay_text):
     else:
         severity = "Mild Pattern Indicators"
 
-    # Dominance
+    # ------------------------
+    # DOMINANCE LOGIC
+    # ------------------------
     if top_score - second_score < 0.05:
         dominant = (
             f"No clear dominant pattern detected. "
@@ -58,10 +59,11 @@ def analyze_full_essay(essay_text):
         dominant = f"{top_label} Pattern Dominant ({top_score:.2f})"
         explanation = PATTERN_EXPLANATIONS.get(top_label, "")
 
-    # -------------------------
-    # Strong Pattern Sentences
-    # -------------------------
+    # ---------------------------------
+    # STRONG PATTERN SENTENCE ANALYSIS
+    # ---------------------------------
     strong_threshold = 0.45
+
     pattern_sentence_count = {label: 0 for label in normalized.keys()}
     pattern_sentence_examples = {label: [] for label in normalized.keys()}
 
@@ -78,9 +80,9 @@ def analyze_full_essay(essay_text):
         for label in normalized.keys()
     }
 
-    # -------------------------
-    # Risk Score (Original)
-    # -------------------------
+    # ------------------------
+    # RISK SCORE
+    # ------------------------
     risk_score = (
         normalized[top_label] * 0.6 +
         (pattern_sentence_count[top_label] / total_sentences) * 0.4
