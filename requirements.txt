@@ -3,3 +3,6 @@ uvicorn
 joblib
 scikit-learn
 pandas
+numpy
+scipy
+regex

@@ -1,13 +1,12 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-from binary_dyslexia_detector.src.essay_aggregator import analyze_essay
-# Later:
-# from writing_pattern_classifier.src.pattern_pipeline import analyze_patterns
+from binary_dyslexia_detector.src.essay_aggregator import analyze_essay as analyze_binary
+from writing_pattern_classifier.src.router import analyze_essay as analyze_patterns
 
 app = FastAPI(
     title="Sinhala Dyslexia Pattern Analysis Service",
-    version="2.0"
+    version="3.0"
 )
 
 class EssayRequest(BaseModel):
@@ -19,20 +18,22 @@ def health():
     return {"status": "ok"}
 
 
-
 @app.post("/predict")
 def predict_dyslexia(req: EssayRequest):
-   
-    result = analyze_essay(req.essay)
-    return result
+    return analyze_binary(req.essay)
+
+
+@app.post("/patterns")
+def predict_patterns(req: EssayRequest):
+    return analyze_patterns(req.essay)
+
 
 @app.post("/analyze")
 def full_analysis(req: EssayRequest):
-    binary_result = analyze_essay(req.essay)
-
-    # pattern_result = analyze_patterns(req.essay)
+    binary_result = analyze_binary(req.essay)
+    pattern_result = analyze_patterns(req.essay)
 
     return {
         "binary": binary_result,
-        # "patterns": pattern_result
+        "patterns": pattern_result
     }
