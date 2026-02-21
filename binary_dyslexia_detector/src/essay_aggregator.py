@@ -72,18 +72,21 @@ def analyze_essay(essay_text: str, threshold: float = 0.65):
             "probability": round(float(prob), 2),
             "label": "DYSLEXIC" if is_dyslexic else "NORMAL"
         })
+    # ---- Essay-level aggregation ----
+    ratio = dyslexic_count / len(sentences)
+    mean_prob = sum(probabilities) / len(probabilities)
 
-    essay_label = (
-        "DYSLEXIC ESSAY"
-        if dyslexic_count >= 1
-        else "NORMAL ESSAY"
-    )
-
-    confidence = sum(probabilities) / len(probabilities)
+    # Hybrid decision rule
+    if ratio >= 0.2 and mean_prob >= 0.5:
+        essay_label = "DYSLEXIC ESSAY"
+    else:
+        essay_label = "NORMAL ESSAY"
 
     return {
         "essay_label": essay_label,
-        "confidence": round(confidence, 2),
+        "confidence": round(mean_prob, 2),
+        "dyslexic_ratio": round(ratio, 2),
+        "max_sentence_probability": round(max(probabilities), 2),
         "total_sentences": len(sentences),
         "dyslexic_sentences": dyslexic_count,
         "sentences": sentence_results
