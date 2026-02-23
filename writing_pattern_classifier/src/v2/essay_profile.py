@@ -146,10 +146,10 @@ def analyze_full_essay(essay_text: str) -> dict:
 
         sentence_results.append({
             "text":          text,
-            "probabilities": probs,
-            "word_count":    word_count,
-            "weight":        round(weight, 4),
-            "is_dyslexic":   is_dys,
+            "probabilities": {k: float(v) for k, v in probs.items()},
+            "word_count":    int(word_count),
+            "weight":        round(float(weight), 4),
+            "is_dyslexic":   bool(is_dys),
         })
 
     total_sentences = len(sentences)
@@ -264,27 +264,27 @@ def analyze_full_essay(essay_text: str) -> dict:
         "risk_level":  risk_level,
 
         # Pattern breakdown
-        "distribution":             normalized,
-        "pattern_sentence_count":   pattern_sentence_count,
+        "distribution":             {k: float(v) for k, v in normalized.items()},
+        "pattern_sentence_count":   {k: int(v) for k, v in pattern_sentence_count.items()},
         "pattern_sentence_examples": pattern_sentence_examples,
-        "pattern_density":          pattern_density,
+        "pattern_density":          {k: float(v) for k, v in pattern_density.items()},
 
         # Sentence-level detail
         "sentences": [
             {
                 "text":          sr["text"],
-                "probabilities": sr["probabilities"],
-                "is_dyslexic":   sr["is_dyslexic"],
-                "weight":        sr["weight"],
+                "probabilities": {k: float(v) for k, v in sr["probabilities"].items()},
+                "is_dyslexic":   bool(sr["is_dyslexic"]),
+                "weight":        float(sr["weight"]),
             }
             for sr in sentence_results
         ],
 
         # Diagnostics
-        "dyslexic_ratio":            round(dyslexic_ratio, 4),
-        "weighted_dyslexic_ratio":   round(weighted_dyslexic_ratio, 4),
-        "dyslexic_sentence_count":   dyslexic_sentence_count,
-        "reliable_sentence_count":   reliable_sentence_count,
-        "total_sentence_count":      total_sentences,
-        "max_sentence_probability":  round(max_sentence_prob, 4),
+        "dyslexic_ratio":            float(round(dyslexic_ratio, 4)),
+        "weighted_dyslexic_ratio":   float(round(weighted_dyslexic_ratio, 4)),
+        "dyslexic_sentence_count":   int(dyslexic_sentence_count),
+        "reliable_sentence_count":   int(reliable_sentence_count),
+        "total_sentence_count":      int(total_sentences),
+        "max_sentence_probability":  float(round(max_sentence_prob, 4)),
     }
