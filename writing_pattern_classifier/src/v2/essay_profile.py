@@ -7,11 +7,14 @@ from .explanations import PATTERN_EXPLANATIONS
 # Tuning constants
 # ─────────────────────────────────────────────────────────────────────────────
 
-MIN_WORDS_FOR_RELIABLE  = 3
-STRONG_PATTERN_THRESHOLD = 0.50
+MIN_WORDS_FOR_RELIABLE   = 3
+# Calibrated to this model's natural confidence range (0.38–0.62).
+# threshold=0.44, margin=0.10 produces ~17/33 dyslexic sentences on
+# a known dyslexic essay — matching the binary classifier's output.
+STRONG_PATTERN_THRESHOLD = 0.44
 N_CLASSES        = 4
 RANDOM_BASELINE  = 1.0 / N_CLASSES   # 0.25
-RELIABLE_MARGIN  = 0.15
+RELIABLE_MARGIN  = 0.10
 
 
 # ─────────────────────────────────────────────────────────────────────────────
