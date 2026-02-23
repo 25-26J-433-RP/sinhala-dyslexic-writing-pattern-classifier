@@ -52,9 +52,18 @@ def _confidence_weight(probs: dict, word_count: int) -> float:
 def _is_dyslexic(probs: dict, word_count: int) -> bool:
     if word_count < MIN_WORDS_FOR_RELIABLE:
         return False
-    max_prob = max(probs.values())
-    margin   = max_prob - RANDOM_BASELINE
-    return bool(margin >= RELIABLE_MARGIN and max_prob >= STRONG_PATTERN_THRESHOLD)
+    top_label = max(probs, key=probs.get)
+    # Only accept Normal if model is highly confident (>0.70).
+    # Below 0.70, evaluate against best error-pattern probability instead.
+    if top_label == "Normal" and probs.get("Normal", 0) > 0.70:
+        return False
+    # Use best error-pattern label (exclude Normal from threshold check)
+    error_probs     = {k: v for k, v in probs.items() if k != "Normal"}
+    best_error_prob = max(error_probs.values())
+    n_classes       = len(probs)
+    random_baseline = 1.0 / n_classes
+    margin = best_error_prob - random_baseline
+    return bool(margin >= RELIABLE_MARGIN and best_error_prob >= STRONG_PATTERN_THRESHOLD)
 
 
 def _weighted_distribution(sentence_results: list) -> dict:
