@@ -152,18 +152,22 @@ def analyze_full_essay(essay_text: str) -> dict:
         dominant    = f"{top_label} Pattern Dominant ({top_score:.2f})"
         explanation = PATTERN_EXPLANATIONS.get(top_label, "")
 
-    pattern_sentence_count    = {label: 0 for label in normalized}
-    pattern_sentence_examples = {label: [] for label in normalized}
+    # Exclude Normal from pattern counts — it's not an error pattern
+    DYSLEXIC_LABELS = {"Grammar", "Phonetic", "Spelling", "Visual"}
+    pattern_sentence_count    = {label: 0 for label in normalized if label in DYSLEXIC_LABELS}
+    pattern_sentence_examples = {label: [] for label in normalized if label in DYSLEXIC_LABELS}
 
     for sr in sentence_results:
         for label, prob in sr["probabilities"].items():
+            if label not in DYSLEXIC_LABELS:
+                continue
             if prob > STRONG_PATTERN_THRESHOLD:
                 pattern_sentence_count[label] += 1
                 pattern_sentence_examples[label].append(sr["text"])
 
     pattern_density = {
         label: float(pattern_sentence_count[label] / total_sentences * 100)
-        for label in normalized
+        for label in pattern_sentence_count
     }
 
     if total_confidence_weight > 0:
