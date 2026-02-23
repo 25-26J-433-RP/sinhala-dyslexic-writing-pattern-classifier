@@ -6,7 +6,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
-
+COPY writing_pattern_classifier/artifacts/ ./writing_pattern_classifier/artifacts/
 ENV PYTHONPATH=/app
 ENV PORT=8080
 
